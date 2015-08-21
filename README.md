@@ -12,13 +12,13 @@ are as follows:
 <ol>
 <li>Reads in the data that has previously been downloaded and unzipped.  The full data set, labels, and subject IDs
   for both the test and train set are loaded in, as well as a copy of the features table.  Please see the code book for
-  more information on these specific tables.<li>
+  more information on these specific tables.</li>
 <li>The y_train.txt and y_test.txt files include information on the specific activity that was being measured, but it is
   in numerical format, not usable to us.  The script replaces these numbers with the actual names, i.e. "Walking",
-  "Standing", "Sitting", etc.<li>
+  "Standing", "Sitting", etc.</li>
 <li>Because we are only interested in mean or standard deviation measurements, we keep only these variables.  This is
-  accommplished by the "grep" command in R and the "select" command in the dplyr package.<li>
-<li>The activity labels and subject IDs are then added as a new column in the data set.<li>
+  accommplished by the "grep" command in R and the "select" command in the dplyr package.</li>
+<li>The activity labels and subject IDs are then added as a new column in the data set.</li>
 <li>Finally, the tidy data set is created by using the "tbl_df", "group_by" and "summarise_each" commands available
-  in the dplyr package.<li>
+  in the dplyr package.</li>
 </ol>
