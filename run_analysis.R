@@ -47,4 +47,4 @@ meanandstd_data$Subject.IDs <- subject_IDs
 #creates tidy data set
 tidy_data <- tbl_df(meanandstd_data)
 tidy_data <- tidy_data %>% group_by(Subject.IDs, Activity) %>% summarise_each(funs(mean))
-write.table(tidy_data, "C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/tidy_data.csv", sep = ",")
+write.table(tidy_data, "C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/tidy_data.txt", sep = ",", row.name=FALSE)
