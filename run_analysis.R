@@ -3,13 +3,13 @@
 library(dplyr)
 
 ##reads in data
-train_data <- read.table("C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt")
-train_labels <- read.table("C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt")
-train_IDs <- read.table("C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt")
-test_data <- read.table("C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt")
-test_labels <- read.table("C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt")
-test_IDs <- read.table("C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt")
-features <- read.table("C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/features.txt")
+train_data <- read.table("X_train.txt")
+train_labels <- read.table("y_train.txt")
+train_IDs <- read.table("subject_train.txt")
+test_data <- read.table("X_test.txt")
+test_labels <- read.table("y_test.txt")
+test_IDs <- read.table("subject_test.txt")
+features <- read.table("features.txt")
 
 #changes numbers in labels files to represent actual names from activity_labels.txt file
 train_labels[train_labels == 1] <- "WALKING"
@@ -47,4 +47,4 @@ meanandstd_data$Subject.IDs <- subject_IDs
 #creates tidy data set
 tidy_data <- tbl_df(meanandstd_data)
 tidy_data <- tidy_data %>% group_by(Subject.IDs, Activity) %>% summarise_each(funs(mean))
-write.table(tidy_data, "C:/Users/jmattes/Desktop/datasciencecoursera/Getting.and.Cleaning.Data/tidy_data.txt", sep = ",", row.name=FALSE)
+write.table(tidy_data, "tidy_data.txt", sep = ",", row.name=FALSE)
